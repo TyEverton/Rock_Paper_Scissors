@@ -1,27 +1,28 @@
 const buttons = document.querySelectorAll('input')
-
-computerPlay = () => {
-  let plays = ['rock', 'paper', 'scissors']
-  return plays[Math.floor(Math.random() * plays.length)]
-  console.log(plays)
+computerSelection = () => {
+  let plays = ['Rock', 'Paper', 'Scissors']
+  let computerPlay = plays[Math.floor(Math.random() * plays.length)]
 }
 
 playRound = (playerSelection) => {
-  let computerSelection = computerPlay()
+  let computerPlay = computerSelection()
   let result = ''
-  if (playerSelection == computerSelection) {
-    result = 'Tie game!'
-  } else if (computerSelection == 'rock' && playerSelection == 'scissors') {
-    result = 'Your rock just took out the computers scissors!'
-  } else if (computerSelection == 'paper' && playerSelection == 'rock') {
-    result = 'Nice job! You beat the computer!'
-  } else if (computerSelection == 'scissors' && playerSelection == 'paper') {
-    result = 'You win! Scissors overpower the computers paper.'
+  if (
+    (playerSelection == 'rock' && computerPlay == 'scissors') ||
+    (playerSelection == 'scissors' && computerPlay == 'paper') ||
+    (playerSelection == 'paper' && computerPlay == 'rock')
+  ) {
+    result =
+      'You win!' + playerSelection + 'beats' + computerPlay + 'every time!'
+  } else if (playerSelection == computerPlay) {
+    result = 'Its a tie! Both users chose' + playerSelection
+  } else {
+    result =
+      'You lose this time. ' + computerPlay + ' beats ' + playerSelection + '.'
   }
   document.getElementById('result').innerHTML = result
   return
 }
-
 buttons.forEach((button) => {
   button.addEventListener('click', function () {
     playRound(button.value)
