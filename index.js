@@ -18,8 +18,12 @@ playRound = (playerSelection) => {
     result = 'Its a tie! Both users chose' + playerSelection
   } else {
     result =
-      'You lose this time. ' + computerPlay + ' beats ' + playerSelection + '.'
+      'You lose! ' +
+      computerPlay +
+      ' beats ' +
+      playerSelection +
   }
+  
   document.getElementById('result').innerHTML = result
   return
 }
