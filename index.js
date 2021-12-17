@@ -1,29 +1,22 @@
 computerSelection = () => {
-  const plays = ['Rock', 'Paper', 'Scissors']
-  const computerPlay = plays[Math.floor(Math.random() * plays.length)]
+  let plays = ['Rock', 'Paper', 'Scissors']
+  let computerPlay = plays[Math.floor(Math.random() * plays.length)]
   console.log(computerPlay)
 }
 
-playerSelection = () => {
-  const plays = ['Rock', 'Paper', 'Scissors']
+playRound = (playerSelection) => {
+  let computerPlay = computerSelection()
+  if (computerPlay == playerSelection) {
+    console.log('Tie game!')
+  } else if (computerPlay == 'rock' && playerSelection == 'scissors') {
+    console.log("Computer's rock took our your scissors!")
+  } else if (computerPlay == 'paper' && playerSelection == 'rock') {
+    console.log("Computer's paper just covered your rock!")
+  } else if (computerPlay == 'scissors' && playerSelection == 'paper') {
+    console.log('Computer cuts right through your paper!')
+  }
 }
 
-playRound = (computerSelection, playerSelection) => {
-  computerSelection = computerSelection()
-  playerSelection = playerSelection()
-  if (computerSelection == playerSelection) {
-    console.log("Tie game!")
-  } else if (
-    (computerSelection == "rock" && playerSelection == "scissors") {
-      console.log("Computer wins this time!")
-    } else if {
+playRound()
 
-    (computerSelection == "paper" && playerSelection == "scissors")   }
-     }
-    else if {
-      
-    }
-    (computerSelection == "scissors" && playerSelection == "paper")
-  ) {
 
-  }
